@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple de canvas</title>
+
+<script>
+        // permet d'éxecuter 1 fonction qd elle est chargée //
+window.onload= init;
+
+// creation variable grâce auxquels on pourra dessiner ds le canvas //
+var canvas;
+var context;
+
+var logo = new Image();  // creation nvelle image //
+logo.src ="animCanvas/images/logo_regart_bleu.jpg";
+
+// creation fonction javascript //     
+function init (){
+
+    canvas = document.getElementById('moncanvas');
+    context = canvas.getContext('2d');  // récup du contexte //
+
+// IMAGE //
+//context.drawImage(logo, 0, 0);// on va dessiner l'image ds le canvas avec méthode drawImage //
+    context.strokeStyle = '#ff0000';
+    context.lineWidth = 10;
+    //context.lineCap = "square";
+    context.fillStyle = 'FFFF00';
+
+    context.beginPath();
+
+// CERCLE / ARC
+// X, Y, RADIUS, START_ANGLE, END_ANGLE, CLOCKWISE
+// context.arc(canvas.width/2, canvas.height/2, 75, 0, 360*degre, false);
+
+/* Z + LIGNE
+    context.moveTo(20,20);
+    context.lineTo(canvas.width-20, 20);
+    context.lineTo(20, canvas.height-20);
+    context.lineTo(canvas.width-20, canvas.height-20);
+    context.moveTo(20,40);
+    context.lineTo(canvas.width-75, 40); */
+
+    // RECTANGLE
+    // X Y WIDTH HEIGHT
+    context.rect(canvas.width/2 - 100, canvas.height/2 - 50, 200, 100);
+
+    context.stroke();
+    context.fill();
+    context.closePath();
+        }
+</script>
+
+</head>
+
+<body>
+    
+
+    <canvas id="moncanvas" width="600" height="450" style="border: 1px #000 solid;">
+    
+    </canvas>
+</body>
+</html>
